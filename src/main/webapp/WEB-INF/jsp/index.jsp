@@ -23,14 +23,14 @@
       <h1><s:text name = "h1.welcome" /></h1>
      
       <s:form action = "GetTravelReport" namespace = "/" method = "post" name = "GetUserInfo" theme = "bootstrap">
-        <s:select name = "SeasonListIndex" 
+        <s:select name = "SeasonName" 
           label = "Pick the current season" 
           headerKey = "-1" 
           headerValue = "(current season)"
           list = "ListOfSeasons" 
           value = "-1" />
 
-        <s:select name = "SeasonPhaseIndex" 
+        <s:select name = "SeasonPhaseName" 
           label = "Pick the current phase of the season" 
           headerKey = "-1" 
           headerValue = "(current phase)"

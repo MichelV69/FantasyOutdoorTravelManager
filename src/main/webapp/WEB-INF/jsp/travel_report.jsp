@@ -85,8 +85,11 @@
       </div>
 
       <hr />
-      <s:form action = "GetTravelReport" namespace = "/" method = "post" name = "DoWeather" theme = "bootstrap">
-        <s:submit key = "SubmitPressed" type = "button" cssClass = "btn btn-outline-primary"/>
+      <s:form action = "GetTravelReport" namespace = "/" method = "post" name = "GetUserInfo" theme = "bootstrap">
+        <s:hidden name = "SeasonName" />
+        <s:hidden name = "SeasonPhaseName" />
+        <s:hidden name = "CivilizationDistanceKM"/>
+        <s:submit key = "SubmitPressed" type = "button" cssClass = "btn btn-outline-primary" />
       </s:form>
 
     </div>

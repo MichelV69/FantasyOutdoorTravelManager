@@ -43,27 +43,29 @@ public class GetTravelReport extends ActionSupport
   public Boolean DoValidate = false;
 
   // gets & sets
+  public List<String> getListOfSeasons() { return ListOfSeasons; }
   public int getSeasonListIndex() { return SeasonListIndex; }
+  public String LookUpSeasonNameByIndex(int incomingText) { return ListOfSeasons.get(incomingText); }
+  public String getSeasonName() { return ListOfSeasons.get(SeasonListIndex); }
+  public void setSeasonName(String incomingText) { SeasonListIndex  = ListOfSeasons.indexOf(incomingText); }
+  public void setSeasonListIndex(int incomingValue) { SeasonListIndex = incomingValue; }
+
   public int getSeasonPhaseIndex() { return SeasonPhaseIndex; }
+  public void getSeasonPhaseIndex(int incomingValue) { SeasonPhaseIndex = incomingValue; }
+  public List<String> getPhasesOfSeasons() { return PhasesOfSeasons; }
+  public String getSeasonPhaseName() { return PhasesOfSeasons.get(SeasonPhaseIndex); }
+  public void setSeasonPhaseName(String incomingText) { SeasonPhaseIndex = PhasesOfSeasons.indexOf(incomingText); }
+  
   public int getCivilizationDistanceKM() { return CivilizationDistanceKM; }
+  public void setCivilizationDistanceKM(String incomingText) { CivilizationDistanceKM = Integer.parseInt(incomingText); }
   
   public String getDefaultConditionsForSeason() { return DefaultConditionsForSeason; }
-  
-  public List<String> getListOfSeasons() { return ListOfSeasons; }
-  public List<String> getPhasesOfSeasons() { return PhasesOfSeasons; }
-  
-  public String getSeasonNameByIndex(int incomingText) { return ListOfSeasons.get(incomingText); }
-  public String getSeasonName() { return ListOfSeasons.get(SeasonListIndex); }
-  public String getSeasonPhaseName() { return PhasesOfSeasons.get(SeasonPhaseIndex); }
 
   public String getEncounterMonsterCR() { return EncounterMonsterCR; }
   public String getEncounterWeatherEffects() { return EncounterWeatherEffects; }
 
-  public void setSeasonListIndex(String incomingText) { SeasonListIndex  = ListOfSeasons.indexOf(incomingText); }
-  public void setSeasonPhaseIndex(String incomingText) { SeasonPhaseIndex = PhasesOfSeasons.indexOf(incomingText); }
   public void setSubmitPressed(String incomingText) { DoValidate = true; }
 
-  public void setCivilizationDistanceKM(String incomingText) { CivilizationDistanceKM = Integer.parseInt(incomingText); }
 
   // constructor
   public GetTravelReport()
