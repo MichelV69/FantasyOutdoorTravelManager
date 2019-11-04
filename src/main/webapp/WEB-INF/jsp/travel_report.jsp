@@ -89,7 +89,10 @@
         <s:hidden name = "SeasonName" />
         <s:hidden name = "SeasonPhaseName" />
         <s:hidden name = "CivilizationDistanceKM"/>
-        <s:submit key = "SubmitPressed" type = "button" cssClass = "btn btn-outline-primary" />
+        <s:submit key = "SubmitPressed" type = "button" cssClass = "btn btn-primary" cssRole = "button" /> 
+
+        <s:url action="CleanSlate" var="CleanSlateURL" />
+        <s:a href="%{CleanSlateURL}" cssClass = "btn btn-secondary" cssRole = "button" > Enter new conditions </s:a>
       </s:form>
 
     </div>

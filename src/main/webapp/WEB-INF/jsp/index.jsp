@@ -39,7 +39,7 @@
 
         <s:textfield name = "CivilizationDistanceKM" label = "Distance in Km to nearest road or settlement" />
 
-        <s:submit key = "SubmitPressed" type = "button" cssClass = "btn btn-outline-primary"/>
+        <s:submit key = "SubmitPressed" type = "button" cssClass = "btn btn-primary" cssRole = "button" />
       </s:form>
     </div>
 

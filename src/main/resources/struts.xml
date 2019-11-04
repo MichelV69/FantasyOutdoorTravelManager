@@ -17,5 +17,8 @@
         <result name = "success">/WEB-INF/jsp/travel_report.jsp</result>
         <result name = "error">/WEB-INF/jsp/index.jsp</result>
       </action>
+      <action name = "CleanSlate" class = "com.pe902_gaming.FantasyOutdoorTravelManager.GetTravelReport">
+        <result>/WEB-INF/jsp/index.jsp</result>
+      </action>
     </package>
 </struts>
