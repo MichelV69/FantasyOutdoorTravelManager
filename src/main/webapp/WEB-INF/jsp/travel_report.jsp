@@ -44,7 +44,7 @@
                   <s:text name = "p.label.CivilizationDistanceKM" />
                 </div>
                 <div class="col-md">
-                  <s:property value = "CivilizationDistanceKM" /> Km
+                  <s:property value = "CivilizationDistanceKM" /> Km (<s:property value = "EncounterRisk" /> risk-level area)
                 </div>
               </div>
 
@@ -89,6 +89,7 @@
         <s:hidden name = "SeasonName" />
         <s:hidden name = "SeasonPhaseName" />
         <s:hidden name = "CivilizationDistanceKM"/>
+        <s:hidden name = "EncounterRisk"/>
         <s:submit key = "SubmitPressed" type = "button" cssClass = "btn btn-primary" cssRole = "button" /> 
 
         <s:url action="CleanSlate" var="CleanSlateURL" />

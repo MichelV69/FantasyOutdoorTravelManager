@@ -22,7 +22,13 @@
     <div class="container">
       <h1><s:text name = "h1.welcome" /></h1>
      
-      <s:form action = "GetTravelReport" namespace = "/" method = "post" name = "GetUserInfo" theme = "bootstrap">
+      <s:form name = "GetUserInfo" namespace = "/" action = "GetTravelReport" method = "post" theme = "bootstrap">
+
+        <s:radio name = "EncounterRisk"
+          label = "Pick the relative combat-encounter risk for the area (+1/12 chance & +1CR per level above \"normal\") "
+          list = "EncounterRiskLevels"
+          value = "EncounterRiskLevels[0]" />
+
         <s:select name = "SeasonName" 
           label = "Pick the current season" 
           headerKey = "-1" 

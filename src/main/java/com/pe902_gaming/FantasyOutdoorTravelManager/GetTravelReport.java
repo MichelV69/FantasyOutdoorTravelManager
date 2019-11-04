@@ -28,9 +28,11 @@ public class GetTravelReport extends ActionSupport
   // properties
   private List<String> ListOfSeasons;
   private List<String> PhasesOfSeasons;
+  private List<String> EncounterRiskLevels;
 
   private final float CR_BY_KM_RATIO = (float) 1/42;
 
+  private int EncounterRiskIndex = 0;
   private int SeasonListIndex = 0;
   private int SeasonPhaseIndex = 0;
   private int CivilizationDistanceKM = 0;
@@ -43,6 +45,10 @@ public class GetTravelReport extends ActionSupport
   public Boolean DoValidate = false;
 
   // gets & sets
+  public List<String> getEncounterRiskLevels() { return EncounterRiskLevels; }
+  public String getEncounterRisk() { return EncounterRiskLevels.get(EncounterRiskIndex); }
+  public void setEncounterRisk(String incomingText) { EncounterRiskIndex  = EncounterRiskLevels.indexOf(incomingText); }
+
   public List<String> getListOfSeasons() { return ListOfSeasons; }
   public int getSeasonListIndex() { return SeasonListIndex; }
   public String LookUpSeasonNameByIndex(int incomingText) { return ListOfSeasons.get(incomingText); }
@@ -70,6 +76,11 @@ public class GetTravelReport extends ActionSupport
   // constructor
   public GetTravelReport()
   {
+    EncounterRiskLevels = new ArrayList<String>();
+    EncounterRiskLevels.add("Normal");
+    EncounterRiskLevels.add("Dangerous");
+    EncounterRiskLevels.add("Savage");
+
     ListOfSeasons = new ArrayList<String>();
     ListOfSeasons.add("Spring");
     ListOfSeasons.add("Summer");
@@ -117,12 +128,26 @@ public class GetTravelReport extends ActionSupport
     EncounterD12Roll = dice(1,12);
     System.out.println(" >> DEBUG: EncounterD12Roll ["+EncounterD12Roll+"]");
 
+    int CombatEncounterRollFloor = 10;
+    int EncounterCRModifier = 0;
+
+    switch (EncounterRiskIndex) 
+    {
+      case 1:
+        CombatEncounterRollFloor = 9;
+        EncounterCRModifier = 1;
+      break;
+      case 2:
+        CombatEncounterRollFloor = 8;
+        EncounterCRModifier = 2;
+      break;  
+    }
 
     // ...   10 - Monster Encounter, CR Based on distance
-    if (10 == EncounterD12Roll || EncounterD12Roll == 11) 
+    if (CombatEncounterRollFloor <= EncounterD12Roll && EncounterD12Roll <= 11) 
     {
-      int CR_Bottom = Math.max( Math.round( CivilizationDistanceKM * CR_BY_KM_RATIO ) - 2, 0 );
-      int CR_Top = 2 + Math.round( CivilizationDistanceKM * CR_BY_KM_RATIO );
+      int CR_Bottom = Math.max( Math.round( CivilizationDistanceKM * CR_BY_KM_RATIO ) - 2, 0 ) + EncounterCRModifier;
+      int CR_Top = 2 + Math.round( CivilizationDistanceKM * CR_BY_KM_RATIO ) + EncounterCRModifier;
       EncounterMonsterCR = "CR" + CR_Bottom + " to CR" + CR_Top;
     }
     // ...   11 - Both
