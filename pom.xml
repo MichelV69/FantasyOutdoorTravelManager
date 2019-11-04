@@ -48,14 +48,5 @@
         </configuration> 
       </plugin> 
     </plugins>
-      <resources>
-        <resource>
-            <directory>${basedir}/src/main/resources</directory>
-            <includes>
-                <include>**/*.*csv</include>
-                <include>**/*.*properties</include>
-            </includes>
-        </resource>
-      </resources>
   </build>
 </project>
