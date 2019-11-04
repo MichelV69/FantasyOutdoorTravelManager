@@ -158,7 +158,7 @@ public class GetTravelReport extends ActionSupport
     }
 
     // WAR packing testing -- TODO Remove Later
-    // EncounterWeatherEffects = getWeatherEffectsEncountersBySeason();
+    EncounterWeatherEffects = getWeatherEffectsEncountersBySeason();
 
     return ActionSupport.SUCCESS;
   }
@@ -314,16 +314,17 @@ public class GetTravelReport extends ActionSupport
   private String getWeatherEffectsEncountersBySeason()
   {
     String EncounterWeatherEffectsText = "";
-    String CSVTableFile = "csv-data/" + getSeasonName() + ".csv";
-    
-    // ClassLoader classLoader = getClass().getClassLoader();
-    ClassLoader classLoader = GetTravelReport.class.getClassLoader();
-    URL resource = classLoader.getResource(CSVTableFile);
+    String CSVTableFile = "csv-data/" + getSeasonName().toLowerCase() + ".csv";
+    System.out.println(" >> DEBUG: CSVTableFile ["+CSVTableFile+"]");
+
+    URL FileURL = getClass().getClassLoader().getResource(CSVTableFile);
+    System.out.println(" >> DEBUG: FileURL ["+FileURL+"]");
+
     List<String[]> CSVDataSet = new ArrayList <String[]>();
 
     try
     {
-      FileReader FileHandle = new FileReader(resource.getFile());
+      FileReader FileHandle = new FileReader(FileURL.getFile());
       CSVReader reader = new CSVReader(FileHandle);
       CSVDataSet = reader.readAll();
       reader.close();
