@@ -8,10 +8,8 @@ public class RollTables
   public String getResultFromTableRoll(int IncomingDiceRoll, String NameOfTable)
   {
     List<String[]> TableDataSet = getColumnsFor(NameOfTable);
-    System.out.println(">> DEBUG TableDataSet.size ["+TableDataSet.size()+"]");
-
-
     String TextResultFromTableRoll = "";
+
     for (String[] CurrentTableRow : TableDataSet )
     {
       // break row to useful structure
@@ -19,21 +17,17 @@ public class RollTables
       int TableRollHighEdge = Integer.parseInt( CurrentTableRow[1] ) ;
 
       // check if roll fits && if so assign results
-      System.out.println(">> DEBUG CurrentTableRow2 ["+CurrentTableRow[2]+"]");
-
       if ((TableRollLowEdge <= IncomingDiceRoll) && (IncomingDiceRoll <= TableRollHighEdge))
         TextResultFromTableRoll = CurrentTableRow[2];
 
     } // end for CSVTableRows
 
-    System.out.println(">> DEBUG IncomingDiceRoll ["+IncomingDiceRoll+"]");
-    System.out.println(">> DEBUG TextResultFromTableRoll ["+TextResultFromTableRoll+"]");
     return TextResultFromTableRoll;
   } // end getResultFromTableRoll
 
   public List<String[]> getColumnsFor(String NameOfTable)
   {
-    String[] RowData = new String[3];
+    String[] RowData = new String[4];
     ArrayList<String[]> ColumnData = new ArrayList<String[]>();
 
     switch (NameOfTable.toLowerCase())
@@ -50,7 +44,6 @@ public class RollTables
         ColumnData.add(new String[]{"7", "10", "Rain. Every square or kilometre of movement costs an additional square or kilometre of movement. Disadvantage on Constitution checks caused by cold weather. Rain lasts until the next overland travel roll."});
         ColumnData.add(new String[]{"11", "11", "Heavy Rain. Every square or kilometre of movement costs 2 additional squares or kilometres of movement. Disadvantage on range attacks, perception checks. Disadvantage on Constitution checks caused by cold weather. Visibility (for torches, dark vision, etc.) is halved. Heavy rain lasts until the next overland travel roll."});
         ColumnData.add(new String[]{"12", "12", "Severe Storm. Thunder, lightning, hail, high-winds, rain.  Every square or kilometre of movement costs 1 additional squares or kilometres of movement.  Visibility (for torches, dark vision, etc.) is halved.The group must make a 4 success Group Skill Test (DC14), with a Risk Effect of 1d4+1 damage +1 Level of Exhaustion (hypothermia, bludgeoning from hail, thunder from near-miss, etc.).  Severe Storm lasts 1 hour, and preceded and followed by the normal seasonal conditions."});
-        ColumnData.add(RowData);
         break;
 
       case  "encounter_weather_autumn":
@@ -71,7 +64,6 @@ public class RollTables
         throw new IllegalStateException("Unexpected value: " + NameOfTable.toLowerCase());
     } // end switch
 
-    System.out.println(">> DEBUG ColumnData ["+ColumnData+"]");
     return ColumnData;
   } // end getColumnsFor
 } // end class RollTables
