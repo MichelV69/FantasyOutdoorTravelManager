@@ -21,32 +21,17 @@
   <body>
     <div class="container">
       <h1><s:text name = "h1.welcome" /></h1>
-     
-      <s:form name = "GetUserInfo" namespace = "/" action = "GetTravelReport" method = "post" theme = "bootstrap">
 
-        <s:radio name = "EncounterRisk"
-          label = "Pick the relative combat-encounter risk for the area (+1/12 chance & +1CR per level above \"normal\") "
-          list = "EncounterRiskLevels"
-          value = "EncounterRiskLevels[0]" />
-
-        <s:select name = "SeasonName" 
-          label = "Pick the current season" 
-          headerKey = "-1" 
-          headerValue = "(current season)"
-          list = "ListOfSeasons" 
-          value = "-1" />
-
-        <s:select name = "SeasonPhaseName" 
-          label = "Pick the current phase of the season" 
-          headerKey = "-1" 
-          headerValue = "(current phase)"
-          list = "PhasesOfSeasons" 
-          value = "-1" />
-
-        <s:textfield name = "CivilizationDistanceKM" label = "Distance in Km to nearest road or settlement" />
-
-        <s:submit key = "SubmitPressed" type = "button" cssClass = "btn btn-primary" cssRole = "button" />
-      </s:form>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <img src="<s:url value='/images/FantasyWeatherElemental.jpg' />" alt="Fantasy Weather Elemental" id="JPGFantasyWeatherElemental" />
+          </div>
+          <div class="col">
+            <s:include value="_include_form_encounterInfo.jsp" />
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Optional JavaScript -->
