@@ -147,9 +147,6 @@ public class GetTravelReport extends ActionSupport
       EncounterWeatherEffects = getWeatherEffectsEncountersBySeason();
     }
 
-    // WAR packing testing -- TODO Remove Later
-    EncounterWeatherEffects = getWeatherEffectsEncountersBySeason();
-
     return ActionSupport.SUCCESS;
   }
 
