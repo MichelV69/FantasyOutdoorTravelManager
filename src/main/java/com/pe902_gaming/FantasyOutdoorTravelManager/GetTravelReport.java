@@ -1,11 +1,13 @@
 package com.pe902_gaming.FantasyOutdoorTravelManager;
 
 // ---
+import com.opencsv.CSVWriter;
 import com.opensymphony.xwork2.ActionSupport;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 
+import java.io.FileWriter;
 import java.lang.*;
 import java.text.MessageFormat;
 
@@ -19,6 +21,7 @@ import java.net.URL;
 
 import com.opencsv.CSVReader;
 import java.io.FileReader;
+import java.nio.file.Paths;
 // --- 
 
 
@@ -314,20 +317,18 @@ public class GetTravelReport extends ActionSupport
   private String getWeatherEffectsEncountersBySeason()
   {
     String EncounterWeatherEffectsText = "";
-    String CSVTableFile = "csv-data/" + getSeasonName().toLowerCase() + ".csv";
-    System.out.println(" >> DEBUG: CSVTableFile ["+CSVTableFile+"]");
 
-    URL FileURL = getClass().getClassLoader().getResource(CSVTableFile);
-    System.out.println(" >> DEBUG: FileURL ["+FileURL+"]");
+    String CSVTableFile = "./csv-data/" + getSeasonName().toLowerCase() + ".csv";
+    System.out.println(" >> DEBUG: CSVTableFile ["+CSVTableFile+"]");
 
     List<String[]> CSVDataSet = new ArrayList <String[]>();
 
     try
     {
-      FileReader FileHandle = new FileReader(FileURL.getFile());
-      CSVReader reader = new CSVReader(FileHandle);
-      CSVDataSet = reader.readAll();
-      reader.close();
+      FileReader FileHandle = new FileReader(CSVTableFile);
+      CSVReader csvReader = new CSVReader(FileHandle, ',');
+      CSVDataSet = csvReader.readAll();
+      csvReader.close();
     }
     catch (Exception e) 
     {
