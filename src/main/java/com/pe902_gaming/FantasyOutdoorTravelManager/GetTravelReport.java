@@ -1,28 +1,15 @@
 package com.pe902_gaming.FantasyOutdoorTravelManager;
 
 // ---
-import com.opencsv.CSVWriter;
 import com.opensymphony.xwork2.ActionSupport;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-
-import java.io.FileWriter;
 import java.lang.*;
 import java.text.MessageFormat;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.List;
-import java.util.Scanner;
-
-import java.net.URL;
-
-import com.opencsv.CSVReader;
-import java.io.FileReader;
-import java.nio.file.Paths;
-// --- 
+// ---
 
 
 @SuppressWarnings("serial")
@@ -318,39 +305,9 @@ public class GetTravelReport extends ActionSupport
   {
     String EncounterWeatherEffectsText = "";
 
-    String CSVTableFile = "./csv-data/" + getSeasonName().toLowerCase() + ".csv";
-    System.out.println(" >> DEBUG: CSVTableFile ["+CSVTableFile+"]");
-
-    List<String[]> CSVDataSet = new ArrayList <String[]>();
-
-    try
-    {
-      FileReader FileHandle = new FileReader(CSVTableFile);
-      CSVReader csvReader = new CSVReader(FileHandle, ',');
-      CSVDataSet = csvReader.readAll();
-      csvReader.close();
-    }
-    catch (Exception e) 
-    {
-      e.printStackTrace();
-    } 
-
-    // --- 
-    int TableDiceRoll = dice(1,12);
-    for (String[] CurrentCSVRow : CSVDataSet ) 
-    {
-      // break row to useful structure
-     int TableRollLowEdge  = Integer.parseInt( CurrentCSVRow[0] ) ;
-     int TableRollHighEdge = Integer.parseInt( CurrentCSVRow[1] ) ;
-
-     // check if roll fits
-     if ( TableRollLowEdge <= TableDiceRoll && TableRollHighEdge <= TableRollHighEdge ) 
-     {
-       // if so assign results
-      EncounterWeatherEffectsText = CurrentCSVRow[2];
-     }
-
-    }; // end for CSVTableRows
+    int TableDiceRoll = dice (1,12);
+    RollTables RollableTable = new RollTables();
+    EncounterWeatherEffectsText = RollableTable.getResultFromTableRoll ( TableDiceRoll, "encounter_weather_" + getSeasonName() );
 
     return EncounterWeatherEffectsText;
   } // end getEncounterWeatherEffects
