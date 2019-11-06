@@ -21,13 +21,18 @@
   <body>
     <div class="container">
 
-      <h1><s:text name = "h1.welcome" /></h1>
+    <h1><s:text name = "h1.welcome" /></h1>
 
+    <div class="container">
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col">
           <s:include value="_include_report_card_TravelReport.jsp" />
         </div>
+        <div class="col">
+          <s:include value="_include_ArtworkDisplay.jsp" />
+        </div>
       </div>
+    </div>
 
       <hr />
       <s:form action = "GetTravelReport" namespace = "/" method = "post" name = "GetUserInfo" theme = "bootstrap">
