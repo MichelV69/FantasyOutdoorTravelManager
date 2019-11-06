@@ -64,9 +64,9 @@ public class GetTravelReport extends ActionSupport
 
   public void setSubmitPressed(String incomingText) { DoValidate = true; }
 
-  public String CurrentArtworkLink() {System.out.println('+') ; return CurrentArtwork.getFilename();}
-  public String CurrentArtworkALT() {System.out.println('+') ; return CurrentArtwork.getTextAltTag() + " by " + CurrentArtwork.getArtistName();}
-  public String CurrentArtworkID() {System.out.println('+') ; return CurrentArtworkALT().replaceAll("\\s", "");}
+  public String getCurrentArtworkLink() { return CurrentArtwork.getFilename();}
+  public String getCurrentArtworkALT()  { return CurrentArtwork.getTextAltTag() + " by " + CurrentArtwork.getArtistName();}
+  public String getCurrentArtworkID()   { return getCurrentArtworkALT().replaceAll("\\s", "");}
 
   // constructor
   public GetTravelReport()
@@ -88,10 +88,6 @@ public class GetTravelReport extends ActionSupport
     PhasesOfSeasons.add("Late");
 
     CurrentArtwork = new RandomArtwork();
-
-    //System.out.println(">>> DEBUG: GetTravelReport.CurrentArtworkLink ["+CurrentArtworkLink()+"]");
-    //System.out.println(">>> DEBUG: GetTravelReport.CurrentArtworkALT ["+CurrentArtworkALT()+"]");
-    //System.out.println(">>> DEBUG: GetTravelReport.CurrentArtworkID ["+CurrentArtworkID()+"]");
   } // end GetTravelReport
 
   // overrides

@@ -26,6 +26,9 @@ public class RandomArtwork
     ArtistName = AvailableFileData.get(ImageIndex)[0];
     Filename = AvailableFileData.get(ImageIndex)[1];
     TextAltTag = AvailableFileData.get(ImageIndex)[2];
+
+    System.out.println("\n >> DEBUG: RandomArtwork.constructor ["+AvailableFileData.size()+"]");
+    System.out.println(" >> DEBUG: RandomArtwork.getFilename ["+getFilename()+"]");
   } // constructor RandomArtwork
 
   public String getArtistName() {return ArtistName; }
