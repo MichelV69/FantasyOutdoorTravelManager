@@ -26,13 +26,15 @@ public class GetTravelReport extends ActionSupport
   private int SeasonListIndex = 0;
   private int SeasonPhaseIndex = 0;
   private int CivilizationDistanceKM = 0;
+  private int EncounterD12Roll = 0;
+
   private String DefaultConditionsForSeason = "A warm and clear day";
   private String EncounterMonsterCR = "";
   private String EncounterWeatherEffects = "";
 
-  private int EncounterD12Roll = 0;
+  private Boolean DoValidate = false;
 
-  public Boolean DoValidate = false;
+  private  RandomArtwork CurrentArtwork;
 
   // gets & sets
   public List<String> getEncounterRiskLevels() { return EncounterRiskLevels; }
@@ -62,6 +64,9 @@ public class GetTravelReport extends ActionSupport
 
   public void setSubmitPressed(String incomingText) { DoValidate = true; }
 
+  public String CurrentArtworkLink() {System.out.println('+') ; return CurrentArtwork.getFilename();}
+  public String CurrentArtworkALT() {System.out.println('+') ; return CurrentArtwork.getTextAltTag() + " by " + CurrentArtwork.getArtistName();}
+  public String CurrentArtworkID() {System.out.println('+') ; return CurrentArtworkALT().replaceAll("\\s", "");}
 
   // constructor
   public GetTravelReport()
@@ -82,7 +87,11 @@ public class GetTravelReport extends ActionSupport
     PhasesOfSeasons.add("Mid");
     PhasesOfSeasons.add("Late");
 
-    System.out.println("\n >> DEBUG: CR_BY_KM_RATIO ["+CR_BY_KM_RATIO+"]");
+    CurrentArtwork = new RandomArtwork();
+
+    //System.out.println(">>> DEBUG: GetTravelReport.CurrentArtworkLink ["+CurrentArtworkLink()+"]");
+    //System.out.println(">>> DEBUG: GetTravelReport.CurrentArtworkALT ["+CurrentArtworkALT()+"]");
+    //System.out.println(">>> DEBUG: GetTravelReport.CurrentArtworkID ["+CurrentArtworkID()+"]");
   } // end GetTravelReport
 
   // overrides
@@ -309,4 +318,4 @@ public class GetTravelReport extends ActionSupport
     return EncounterWeatherEffectsText;
   } // end getEncounterWeatherEffects
 
-} // end class GetTravelReport 
+} // end class GetTravelReport
