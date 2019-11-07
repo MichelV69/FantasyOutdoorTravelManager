@@ -43,7 +43,7 @@ handle this job.
   * Enter the distance in kilometers of the current position of the story 
   characters, relative to the nearest active civilization, such as towns, 
   villages or regularly patrolled highways.
-  * Click `[Get Travel Report]`.
+* Click `[Get Travel Report]`.
   * Review results.  Discard anything you don't think fits.
-  * Click `[Get Travel Report]` to re-roll with the same data, or
-  * Click `[Enter new conditions]` to start over.
+* Click `[Get Travel Report]` to re-roll with the same data, or
+* Click `[Enter new conditions]` to start over.
