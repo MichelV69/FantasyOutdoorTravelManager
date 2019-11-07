@@ -1,3 +1,11 @@
+#ignore
 target/*
 .idea/*
 *.iml
+personal*.txt
+
+#do not ignore
+!target/*.jar
+!target/*.war
+
+# ----- end of file -----
