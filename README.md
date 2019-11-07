@@ -1,4 +1,4 @@
-# FantasyOutdoorTravelManager
+# Fantasy Outdoor Travel Manager
 
 ***For Fantasy Worlds Settings such as Dungeons & Dragons 5th Edition***
 
@@ -23,7 +23,8 @@ handle this job.
 | Current Season                              | Mid Summer                      |
 | Distance from the nearest patrol, etc       | 123 Km (Normal risk-level area) |
 | Current seasonal conditions                 | Warm (around 19C), 0/8 cloud cover, with wind North-Easterly and breezy. |
-
+| (Potential) Monster Encounter               | CR2 to CR6 (based on distance from patrols, etc) |
+| (Potential) Notable Weather Effects         | Rain. Every square or kilometre of movement costs an additional square or kilometre of movement. Disadvantage on Constitution checks caused by cold weather. Rain lasts until the next overland travel roll.|
 
 ## How To Use
 * Download WAR file, or source and compile your own
